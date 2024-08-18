@@ -9,7 +9,7 @@ body {
     padding: 0;
 }
 
-h1, h2 {
+h1, h2 ,h3 {
     color: #2c3e50;
     text-align: center;
 }
@@ -27,10 +27,6 @@ h1, h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#files-section {
-    margin-top: 0;
 }
 
 /* Button Styles */
@@ -70,24 +66,6 @@ input[type="file"] {
 #fileList li:hover {
     background-color: #bdc3c7;
     cursor: pointer;
-}
-
-/* Styles for h3 */
-h3 {
-    color: #2c3e50;
-    font-size: 24px;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-
-/* Styles for h4 */
-h4 {
-    color: #34495e;
-    font-size: 20px;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 /* Additional styles for the form and list under h3 and h4 */

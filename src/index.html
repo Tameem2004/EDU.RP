@@ -15,20 +15,54 @@
             <button type="submit">Upload</button>
         </form>          
     </div>
-    <div id="files-section">
-        <h2>Your Research Papers</h2>
-        <ul id="fileList"></ul>
-    </div>
-    <h3>Retrieve Stored Files</h3>
+    <h2>Retrieve Stored Files</h2>
     
     <form id="getFilesForm" action="/getFiles" method="POST">
         <input type="text" id="userAddress" name="userAddress" placeholder="Enter Educhain Address" required>
         <button type="submit">Get Files</button>
     </form>
 
-    <h4>Stored Files:</h4>
+    <h3>Stored Files:</h3>
     <ul id="fileLinks"></ul>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('getFilesForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const userAddress = document.getElementById('userAddress').value;
+
+            try {
+                const response = await fetch('/getFiles', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ userAddress: userAddress })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const ipfsLinks = data.ipfsLinks;
+
+                    const fileLinksUl = document.getElementById('fileLinks');
+                    fileLinksUl.innerHTML = ''; // Clear previous links
+
+                    ipfsLinks.forEach(link => {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.href = link;
+                        a.textContent = link;
+                        a.target = '_blank';
+                        li.appendChild(a);
+                        fileLinksUl.appendChild(li);
+                    });
+                } else {
+                    console.error('Failed to fetch IPFS links');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
 </body>
 </html>
