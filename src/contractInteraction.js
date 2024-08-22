@@ -7,7 +7,6 @@ const {Web3} = require('web3');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 5500;
 
 const ROOT_DIR = path.resolve();
 
@@ -81,9 +80,12 @@ const ABI = [
 
 app.use(upload())
 
+const createApp1 = () => {
+
+
 // Serve the main HTML file
 app.get("/", (req, res) => {  
-    const filepath = path.join(ROOT_DIR, 'src', 'index.html');
+    const filepath = path.join(ROOT_DIR,'src','index.html');
     res.sendFile(filepath);
 });
 
@@ -180,4 +182,8 @@ const getFilesFromBlockchain = async (userAddress) => {
 // Serve static files like CSS, JavaScript, images, etc.
 app.use(express.static("src"));
 
-app.listen(port, () => console.log(`Listening on port ${port}`))
+return app;
+};
+
+
+module.exports = { createApp1 };
