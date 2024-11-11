@@ -4,8 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Educhain Research Repository</title>
-    <link rel="stylesheet" href="/src/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif; /* Modern clean font */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            background-color: #2E45FA; /* Matching blue background */
+            color: #FFFFFF; /* White text for contrast */
+            padding-top: 20px;
+            position: relative; /* Needed for absolute positioning of the logo */
+        }
+
+        /* Logo Container */
+        #logo-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10; /* Ensures logo stays above other elements */
+        }
+
+        #logo {
+            width: 100px; /* Scale the image down */
+            height: 100px; /* Ensure aspect ratio is preserved */
+            object-fit: cover; /* Prevent stretching */
+        }
+
+        /* Header */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            letter-spacing: 2px;
+        }
+
+        /* Section Styling */
+        #upload-section, #getFilesForm {
+            background-color: #001FFF; /* Dark blue container background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        /* Buttons */
+        button {
+            background-color: #00FFDE; /* Cyan for buttons */
+            color: #001FFF; /* Dark blue text on buttons */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #FFFFFF; /* Hover to white */
+            color: #2E45FA; /* Change text color to match main blue */
+        }
+
+        /* Input Fields */
+        input[type="file"], input[type="text"] {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #00FFDE; /* Cyan border for inputs */
+            border-radius: 5px;
+            color: #FFFFFF;
+            background-color: #001FFF; /* Match section container background */
+        }
+
+        /* Wallet Connect Button */
+        #wallet-connect {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #00FFDE;
+            color: #001FFF;
+        }
+
+        #wallet-connect:hover {
+            background-color: #FFFFFF;
+            color: #2E45FA;
+        }
+
+        /* PDF Viewer Section */
+        #pdfViewer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        iframe {
+            display: block;
+            border: 1px solid #00FFDE; /* Cyan border for frames */
+            border-radius: 5px;
+            width: 300px;
+            height: 400px;
+        }
+
+        /* Footer or Additional Text */
+        h3 {
+            color: #00FFDE;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
     <button id="wallet-connect">Connect Wallet</button>

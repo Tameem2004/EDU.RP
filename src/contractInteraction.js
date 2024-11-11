@@ -180,7 +180,7 @@ const getFilesFromBlockchain = async (userAddress) => {
 }
 
 // Serve static files like CSS, JavaScript, images, etc.
-app.use(express.static(path.join(ROOT_DIR, 'src')));
+app.use(express.static("src"));
 
 return app;
 };
