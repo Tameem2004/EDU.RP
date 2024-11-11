@@ -1,5 +1,5 @@
 ﻿# EDU.RP
-!![alt text](photo_6212844694346514241_y.jpg)
+## ![alt text](photo_6212844694346514241_y.jpg)
 
 ## Idea
 Educhain Based Research Repository
