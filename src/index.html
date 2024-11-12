@@ -144,10 +144,32 @@
     <div id="pdfViewer"></div>
 
     <script>
-        document.getElementById('wallet-connect').addEventListener('click', () => {
-            alert('Wallet connect functionality will be implemented here.');
-        });
+    document.getElementById('wallet-connect').addEventListener('click', async () => {
+        // Check if MetaMask is installed
+        if (typeof window.ethereum !== 'undefined') {
+            try {
+                // Request account access
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
+                // Get the connected wallet address
+                const walletAddress = accounts[0];
+                
+                // Update the button text with the connected wallet address
+                const walletConnectButton = document.getElementById('wallet-connect');
+                walletConnectButton.textContent = `Connected: ${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}`;
+                walletConnectButton.style.backgroundColor = '#FFFFFF'; // Optional: Change button style
+                walletConnectButton.style.color = '#2E45FA';
+                walletConnectButton.disabled = true; // Disable the button to prevent reconnecting
+
+                console.log(`Wallet connected: ${walletAddress}`);
+            } catch (error) {
+                console.error('User rejected connection or an error occurred:', error);
+                alert('Failed to connect wallet.');
+            }
+        } else {
+            alert('MetaMask is not installed. Please install it to use this feature.');
+        }
+    });
         document.getElementById('getFilesForm').addEventListener('submit', async function(event) {
             event.preventDefault();
 
