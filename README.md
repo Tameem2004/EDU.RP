@@ -28,4 +28,4 @@ To start the application, run:
 node server.js
 ```
 
-Open your browser and navigate to `http://localhost:5500` to access EDU.RP
+Open your browser and navigate to `https://edurp.vercel.app/` to access EDU.RP
